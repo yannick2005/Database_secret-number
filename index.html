@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if user and user.secret_number %}
+   Guess the number (1-30)
+    <form method="post" action="/calculate">
+           Your Guess: <input type="number" name="guess">
+       <button type="submit">OK</button>
+    </form>
+{% else %}
+    <form method="post" action="/login">
+          <input type="text" name="user-name" placeholder="Your name"><br>
+          <input type="email" name="user-email" placeholder="Your email"><br>
+          <button>OK</button>
+    </form>
+{% endif %}
+{% endblock content %}
